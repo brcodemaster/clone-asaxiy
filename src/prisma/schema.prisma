@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+
+  firstName   String    @map("first_name")
+  lastName    String    @map("last_name")
+  phoneNumber String    @map("phone_number")
+  password    String
+  email       String?   @unique
+  passportId  String?   @unique @map("passport_id")
+  sex         SexEnum?
+  address     String?
+  birthday    DateTime?
+  work        String?
+  workAddress String?   @map("work_address")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+
+  text String
+  link String
+
+  product Product[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id Int @id @default(autoincrement())
+
+  type          String
+  brand         String
+  model         String
+  imageUrl      String     @map("image_url")
+  name          String
+  price         Int
+  quantity      Int
+  capacity      String?
+  memory        String?
+  color         String?
+  rating        RatingEnum @default(five)
+  halfRating    Boolean    @default(false) @map("half_rating")
+  comments      Int        @default(0)
+  discountPrice Int        @default(0) @map("discount_price")
+  installment   Int        @default(0)
+  innovative    Boolean    @default(false)
+
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum RatingEnum {
+  one
+  two
+  three
+  four
+  five
+}
+
+enum SexEnum {
+  Male
+  Female
+}
