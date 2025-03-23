@@ -1,27 +1,15 @@
-interface HeaderButtons {
-	text: string
-	icon: React.ReactNode
+import { bannerIconMap } from '@/components/shared/banner/banner-item'
+import { footerIconMap } from '@/components/shared/footer/footer-menus'
+import { iconMap } from '@/components/shared/header/navbar-buttons'
+
+type NavbarButtonsType = {
+	name: string
 	link?: string
+	className?: string
+	icon: keyof typeof iconMap
 }
 
-interface Categories {
-	text: string
-	link: string
-}
-
-interface FooterItem {
-	title: string
-	description: string
-	imageUrl: string
-}
-
-interface FooterMenu {
-	text: string
-	link: string
-	icon?: React.ReactNode
-}
-
-interface Contents {
+type ContentsType = {
 	beforeText?: string
 	title?: string
 	link: {
@@ -31,19 +19,17 @@ interface Contents {
 	description: string
 }
 
-interface ProductItem {
-	id: number
-	brand: string
-	imageUrl: string
+type BannerItemType = {
+	icon: keyof typeof bannerIconMap
 	title: string
-	memory: string
-	color: string
-	rating: number
-	halfRating: boolean
-	comments: number
-	price: number
-	discountPrice: number
-	installment: string
-	newless: boolean
-	installmentPlan: boolean
+	description: string
+	className?: string
+}
+
+type FooterMenusType = Record<string, FooterMenuType[]>
+
+type FooterMenuType = {
+	text: string
+	link: string
+	icon?: keyof typeof footerIconMap
 }

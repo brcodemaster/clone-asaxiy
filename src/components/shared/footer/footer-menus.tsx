@@ -1,23 +1,58 @@
-import { Title } from '@/components/ui/title'
+import {
+	Facebook,
+	Humo,
+	Instagram,
+	Mastercard,
+	Payme,
+	Telegram,
+	Uzcard,
+	Uzum,
+	Visa,
+	Youtube,
+} from '@/components/ui'
+import { TelegramSquare } from '@/components/ui/svgs/telegram-square'
 import { cn } from '@/lib/utils'
-import { ArrowRight } from 'lucide-react'
+import { FooterMenuType } from '@/types/types'
+import { ArrowRight, Mail, MapPin, MapPinned, Phone, Snail, Store } from 'lucide-react'
 import Link from 'next/link'
 
 interface Props {
 	title: string
-	menus: FooterMenu[]
+	menus: FooterMenuType[]
 }
+
+export const footerIconMap = {
+	phone: <Phone />,
+	mail: <Mail />,
+	telegramSquare: <TelegramSquare />,
+	mapPin: <MapPin />,
+	store: <Store />,
+	mapPinned: <MapPinned />,
+	snail: <Snail />,
+	facebook: <Facebook />,
+	telegram: <Telegram />,
+	instagram: <Instagram />,
+	youtube: <Youtube />,
+	uzum: <Uzum />,
+	visa: <Visa />,
+	humo: <Humo />,
+	payme: <Payme />,
+	mastercard: <Mastercard />,
+	uzcard: <Uzcard />,
+} as const
 
 export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
 	return (
 		<div className='flex'>
-			<div className={cn('p-5 min-w-[318px]', title === 'Для связи' && 'max-w-[100px]')}>
+			<div className={cn('p-5 min-w-[318px] max-md:p-3', title === 'Для связи' && 'max-w-[100px]')}>
 				<ol className='flex flex-col'>
-					<Title title={title} size='lg' />
+					<h2 className='text-xl font-bold leading-16 max-md:text-lg max-sm:text-base max-md:leading-10'>
+						{title}
+					</h2>
 					<div
 						className={cn(
-							'flex flex-col gap-2',
-							title === 'Мы в соц. сетях' && 'flex flex-row gap-5 justify-start',
+							'flex flex-col gap-2 max-md:text-sm max-md:gap-1',
+							title === 'Мы в соц. сетях' && 'flex flex-row gap-6 justify-start',
 							title === 'Виды оплаты' && 'grid grid-cols-2 gap-2'
 						)}
 					>
@@ -32,7 +67,7 @@ export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
 											target='blank'
 										>
 											<li className='flex gap-2'>
-												{item.icon} {item.text}
+												{footerIconMap[item.icon!]} {item.text}
 											</li>
 										</a>
 									)
@@ -43,7 +78,7 @@ export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
 											key={item.text}
 											className='bg-[#e8e8f1] p-3 rounded-md flex justify-center items-center max-w-[150px]'
 										>
-											<img src={`/${item.text}`} alt='Payment system' />
+											{footerIconMap[item.icon!]}
 										</li>
 									)
 
@@ -57,7 +92,7 @@ export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
 												target='blank'
 											>
 												<li className='flex gap-2 bg-[#e8e8f1] p-3 rounded-md'>
-													{item.icon} {item.text}
+													{footerIconMap[item.icon!]} {item.text}
 													<ArrowRight className='absolute right-5 invisible opacity-0 duration-200 group-hover:right-3 group-hover:visible group-hover:opacity-100' />
 												</li>
 											</a>
@@ -71,7 +106,7 @@ export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
 											className='text-gray-500 font-semibold hover:text-primary relative group duration-200'
 										>
 											<li className='flex gap-2 bg-[#e8e8f1] p-3 rounded-md'>
-												{item.icon} {item.text}
+												{footerIconMap[item.icon!]} {item.text}
 												<ArrowRight className='absolute right-5 invisible opacity-0 duration-200 group-hover:right-3 group-hover:visible group-hover:opacity-100' />
 											</li>
 										</Link>
@@ -81,7 +116,7 @@ export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
 									return (
 										<a key={item.text} href={item.link} target='blank'>
 											<li className='rounded-md flex justify-center items-center hover:text-primary duration-200 text-gray-500'>
-												{item.icon}
+												{footerIconMap[item.icon!]}
 											</li>
 										</a>
 									)
@@ -94,7 +129,7 @@ export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
 											className='text-gray-500 font-semibold hover:text-primary duration-200'
 										>
 											<li>
-												{item.icon} {item.text}
+												{footerIconMap[item.icon!]} {item.text}
 											</li>
 										</Link>
 									)

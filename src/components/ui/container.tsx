@@ -1,9 +1,13 @@
 import { cn } from '@/lib/utils'
 
-interface Props {
+type Props = {
 	className?: string
 }
 
 export const Container: React.FC<React.PropsWithChildren<Props>> = ({ className, children }) => {
-	return <div className={cn('max-w-[1378px] w-[1378px] mx-auto', className)}>{children}</div>
+	return (
+		<div className={cn('max-w-[1410px] mx-auto max-sm:px-2 max-lg:px-4 lg:px-5', className)}>
+			{children}
+		</div>
+	)
 }

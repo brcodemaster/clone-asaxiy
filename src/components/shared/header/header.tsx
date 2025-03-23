@@ -1,32 +1,50 @@
-import Image from 'next/image'
+import { Container, Logo, Button, Input } from '@/components/ui'
+import { LucideMenu } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Container } from '@/components/ui/container'
-import { HeaderSearchInput } from './header-search-input'
-import { HeaderMenuButtons } from './header-menus'
-import { HeaderCategories } from './header-categories'
+import { NavbarButtons } from './navbar-buttons'
+import { navbarMenus } from '@/lib/db'
 
 export const Header: React.FC = () => {
+	const t = useTranslations('header')
+
 	return (
-		<header className='shadow-2xl shadow-gray-400/20 fixed top-0 left-0 right-0 bg-white z-10'>
-			<div className='border-b border-b-gray-400/20'>
-				<Container className='p-4 flex justify-between items-center gap-2'>
+		<header className='bg-white shadow-2xl shadow-black/10'>
+			<div className='w-full py-5 border-b border-b-border max-lg:py-4 max-sm:py-3'>
+				<Container className='flex justify-between items-center gap-3'>
 					<Link href='/'>
-						<Image src='/logo.svg' alt='Logo' width={130} height={32} priority />
+						<Logo className='max-sm:w-10/12 max-sm:h-auto' />
 					</Link>
-					<Button className='text-[16px] font-normal flex items-center gap-1 relative pl-10 pr-5'>
-						<span className='absolute top-[40%] left-[14px] w-[17px] h-[2px] bg-white/80 -translate-y-1/2 duration-200'></span>
-						<span className='absolute top-[50%] left-[14px] w-[17px] h-[2px] bg-white/80 -translate-y-1/2 duration-200'></span>
-						<span className='absolute top-[60%] left-[14px] w-[17px] h-[2px] bg-white/80 -translate-y-1/2 duration-200'></span>
-						Категории
+
+					<Button className='max-sm:text-sm capitalize'>
+						<LucideMenu size={16} /> {t('categories')}
 					</Button>
-					<HeaderSearchInput />
-					<HeaderMenuButtons className='pl-2' />
+
+					<div className='w-full flex items-center max-sm:hidden'>
+						<Input
+							className='rounded-r-none grow placeholder:capitalize placeholder:text-sm'
+							placeholder={t('searchPlaceholder')}
+							name='search'
+						/>
+						<Button className='rounded-l-none capitalize'>{t('search')}</Button>
+					</div>
+
+					<NavbarButtons className='flex items-center pl-2 max-lg:hidden' />
 				</Container>
 			</div>
-			<div className='border-b border-b-gray-400/20'>
-				<Container className='p-4'>
-					<HeaderCategories />
+			<div className='w-full py-4 border-b border-b-border max-sm:py-3 max-lg:hidden'>
+				<Container className='flex items-center'>
+					<nav className='w-full flex items-center'>
+						<ul className='w-full flex justify-between items-center text-sm font-medium'>
+							{navbarMenus.map(menu => (
+								<li key={menu.name} className='capitalize group'>
+									<Link href={menu.link} className='group-hover:text-primary duration-200'>
+										{t(menu.name)}
+									</Link>
+								</li>
+							))}
+						</ul>
+					</nav>
 				</Container>
 			</div>
 		</header>

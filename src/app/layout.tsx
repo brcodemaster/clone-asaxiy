@@ -1,24 +1,47 @@
+import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
+import { getLocale } from 'next-intl/server'
+import { NextIntlClientProvider } from 'next-intl'
+
+import { NavbarButtons } from '@/components/shared/header/navbar-buttons'
+import { Header } from '@/components/shared'
+
 const inter = Inter({
-	subsets: ['cyrillic'],
-	variable: '--inter-f',
-	weight: ['300', '400', '500', '600', '700', '800', '900'],
+	subsets: ['latin'],
+	weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+	display: 'swap',
 })
 
-export default function MainLayout({
+export const metadata: Metadata = {
+	title: 'Интернет магазин Asaxiy',
+	description: 'Online store Asaxiy',
+}
+
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode
 }>) {
+	const locale = await getLocale()
+
 	return (
-		<html lang='en'>
-			<head>
-				<link rel='shortcut icon' type='image/x-icon' href='/logo-icon.png' />
-				<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></link>
-			</head>
-			<body className={`${inter.className} bg-background-alt antialiased`}>{children}</body>
+		<html lang={locale}>
+			<body
+				className={`${inter.className} antialiased min-h-screen bg-[#f4f7fd] text-[#212529] max-lg:pb-[70px]`}
+			>
+				<NextIntlClientProvider locale={locale}>
+					<Header />
+					<main className='mt-[100px]'>
+						{children}
+						<NavbarButtons
+							className='flex justify-between fixed bottom-0 left-0 right-0 py-4 px-8 border-t border-border bg-white lg:hidden'
+							mobile
+						/>
+					</main>
+				</NextIntlClientProvider>
+			</body>
 		</html>
 	)
 }

@@ -1,0 +1,45 @@
+{
+	"header": {
+		"categories": "Bo'limlar",
+		"search": "Qidirish",
+		"searchPlaceholder": "Topish...",
+		"products": "Mahsulotlar",
+		"payment": "To'lov",
+		"track": "Kuzatish",
+		"cart": "Savatcha",
+		"favorites": "Sevimlilar",
+		"language": "Русский",
+		"user": "Kirish",
+		"ramadan": "saxiy ramazon",
+		"0-0-3": "0-0-3",
+		"smartphones": "telefonlar",
+		"householdAppliances": "maishiy texnika",
+		"books": "kitoblar",
+		"notebooks": "noutbuklar",
+		"bestseller": "bestseller"
+	},
+	"about": {
+		"about": "asaxiy kompaniyasi haqida",
+		"description": "Butun O‘zbekiston bo‘ylab maishiy texnika va elektronika tovarlarini yetkazib beruvchi kompaniyamizning asosiy afzalligi – ko‘p yillik ish tajribasi va yaxshi nom qozonib ulgurganidir. Asos solinganidan buyon Asaxiy internet-do‘koni va uning jamoasi iste’mol bozorining talablari tendensiyalarini tinimsiz kuzatib kelmoqda; bu esa bizga eng so‘nggi texnologiyalar va innovatsion yechimlardan hamisha boxabar bo‘lib turish imkonini beradi. Kompaniiya mutaxassislari mijozlarimizning istaklarini diqqat bilan o‘rganishadi, shu bois resurs doimiy tarzda hamyonbop narxlardagi sifatli yangi mahsulotlar bilan boyitilib kelmoqda.",
+		"accordion": {
+			"about": "kompaniyaning ishlash tamoyili",
+			"aboutDescription": "",
+			"advantages": "bizning afzalliklarimiz",
+			"advantagesDescription": ""
+		},
+		"companyName": "'asaxiy books' MCHJ",
+		"register": "ro'yxatdan o'tish raqami: 123456",
+		"inn": "inn: 123456789",
+		"boss": "palonchi palonchiyev palonchiyevich"
+	},
+	"banner": {
+		"dontNeed": "Endi bozorga borishga hojat yo'q",
+		"dontNeedDescription": "Bizda qulay narxlar va uyga yetkazib berish mavjud",
+		"fastDelivery": "Tez yetkazib berish",
+		"fastDeliveryDescription": "Bizning xizmatimiz sizni ajablantiradi",
+		"forYou": "Siz uchun qulayliklar",
+		"forYouDescription": "Nosozliklar yuzaga kelganda tez rasmiylashtirish va pulni qaytarish kafolati",
+		"months": "Bo'lib to'lash",
+		"monthsDescription": "3, 6 va 12 oy davomida oldindan to'lov yo'q"
+	}
+}
