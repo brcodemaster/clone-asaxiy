@@ -2,11 +2,10 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
-import { getLocale } from 'next-intl/server'
 import { NextIntlClientProvider } from 'next-intl'
+import { getLocale, getMessages } from 'next-intl/server'
 
-import { NavbarButtons } from '@/components/shared/header/navbar-buttons'
-import { Header } from '@/components/shared'
+import { Header, NavbarButtons } from '@/components/shared'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -25,13 +24,14 @@ export default async function RootLayout({
 	children: React.ReactNode
 }>) {
 	const locale = await getLocale()
+	const messages = await getMessages()
 
 	return (
 		<html lang={locale}>
 			<body
 				className={`${inter.className} antialiased min-h-screen bg-[#f4f7fd] text-[#212529] max-lg:pb-[70px]`}
 			>
-				<NextIntlClientProvider locale={locale}>
+				<NextIntlClientProvider locale={locale} messages={messages}>
 					<Header />
 					<main className='mt-[100px]'>
 						{children}

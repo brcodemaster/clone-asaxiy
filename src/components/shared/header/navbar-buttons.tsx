@@ -2,6 +2,7 @@ import { navbarButtons } from '@/lib/db'
 import { cn } from '@/lib/utils'
 import { Box, Earth, HandCoins, Heart, MapPinned, ShoppingCart, User } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { LocaleSwitcher } from './locale-switcher'
 
 type Props = {
 	mobile?: boolean
@@ -27,6 +28,10 @@ export const NavbarButtons: React.FC<Props> = ({ mobile = false, className }) =>
 				{navbarButtons.map(button => {
 					if (mobile && ['products', 'user', 'language'].includes(button.name)) {
 						return
+					}
+
+					if (button.name === 'language') {
+						return <LocaleSwitcher key={button.name} icon={button.icon} name={button.name} />
 					}
 
 					return (
