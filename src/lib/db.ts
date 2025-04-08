@@ -185,39 +185,39 @@ export const banner: BannerItemType[] = [
 export const footerMenus: FooterMenusType = {
 	sections: [
 		{
-			text: 'Часто задаваемые вопросы',
+			text: 'faq',
 			link: '/faq',
 		},
 		{
-			text: 'Новости',
+			text: 'news',
 			link: '/news',
 		},
 		{
-			text: 'Блог',
+			text: 'blog',
 			link: '/blog',
 		},
 		{
-			text: 'Наши бренды',
+			text: 'brands',
 			link: '/our-brands',
 		},
 		{
-			text: 'Карьера в Asaxiy',
+			text: 'career',
 			link: '/career-asaxiy',
 		},
 		{
-			text: 'Оферта для рассрочку',
+			text: 'offer',
 			link: '/installment-offer',
 		},
 		{
-			text: 'Публичная оферта',
+			text: 'publicOffer',
 			link: '/public-offer',
 		},
 		{
-			text: 'О нас',
+			text: 'aboutUs',
 			link: '/about-us',
 		},
 		{
-			text: 'Карта сайта',
+			text: 'map',
 			link: '/site-map',
 		},
 	],
@@ -238,30 +238,30 @@ export const footerMenus: FooterMenusType = {
 			icon: 'telegramSquare',
 		},
 		{
-			text: 'улица Ислама Каримова, 49, Ташкент',
+			text: 'street',
 			link: 'https://www.google.com/maps/place/Tashkent+State+University+of+Economics/@41.3108037,69.2304245,15z/data=!4m7!3m6!1s0x38ae8b05774c5969:0xd6f6eef4c05c280!8m2!3d41.3108047!4d69.2494792!15sCgZuYXJ4b3paCCIGbmFyeG96kgEKdW5pdmVyc2l0eZoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VONWIwdElTalIzUlJBQuABAA!16s%2Fm%2F0415l82?entry=tts&g_ep=EgoyMDI0MDUyNy4yKgBIAVAD',
 			icon: 'mapPin',
 		},
 	],
 	loyaltyProgram: [
 		{
-			text: 'Статус "El yurt ishonchi"',
+			text: 'status',
 			link: '/loyalty-program',
 		},
 	],
 	delivery: [
 		{
-			text: 'Наши магазины',
+			text: 'ourStores',
 			link: 'https://www.google.com/maps/d/u/0/viewer?mid=1R5cL_79kiW9_CaeJVvCfswbKeU-hetc&ll=40.55956848590127%2C66.86261269999999&z=8',
 			icon: 'store',
 		},
 		{
-			text: 'Пункты выдачи',
+			text: 'pickUpPoint',
 			link: '/delivery-points',
 			icon: 'mapPinned',
 		},
 		{
-			text: 'Доставка',
+			text: 'delivery',
 			link: '/delivery',
 			icon: 'snail',
 		},

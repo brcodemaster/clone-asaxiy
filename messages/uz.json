@@ -41,5 +41,28 @@
 		"forYouDescription": "Nosozliklar yuzaga kelganda tez rasmiylashtirish va pulni qaytarish kafolati",
 		"months": "Bo'lib to'lash",
 		"monthsDescription": "3, 6 va 12 oy davomida oldindan to'lov yo'q"
+	},
+	"footer": {
+		"information": "Ma'lumotlar",
+		"faq": "Tez tez beriladigan savollar",
+		"news": "Yangiliklar",
+		"blog": "Blog",
+		"brands": "Bizning brendlarimiz",
+		"career": "Asaxiyda faoliyat yuritish",
+		"offer": "To'lov uchun taklif",
+		"publicOffer": "Ommaviy to'lov uchun taklif",
+		"aboutUs": "Biz haqimizda",
+		"map": "Sayt xaritasi",
+		"contact": "Aloqa uchun",
+		"street": "Islom Karimov ko'chasi, 49, Toshkent",
+		"loyalty": "Sodiqlik dasturlari",
+		"status": "'El yurt ishonchi' statusi",
+		"deliveryAndStores": "Yetkazib berish va do'konlar",
+		"ourStores": "Bizning do'konlarimiz",
+		"pickUpPoint": "Qabul qilish punkti",
+		"delivery": "Yetkazib berish",
+		"payments": "To'lov turlari",
+		"social": "Bizning ijtimoiy tarmoqlar",
+		"footerInfo": "2015 - 2024 Asaxiy.uz internet do'koni: Maishiy texnika va h.k. Tovarlarni yetkazib berish barcha hududlarda amalga oshiriladi. Barcha huquqlar himoyalangan."
 	}
 }

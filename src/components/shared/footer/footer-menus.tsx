@@ -14,6 +14,7 @@ import { TelegramSquare } from '@/components/ui/svgs/telegram-square'
 import { cn } from '@/lib/utils'
 import { FooterMenuType } from '@/types/types'
 import { ArrowRight, Mail, MapPin, MapPinned, Phone, Snail, Store } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 interface Props {
@@ -42,23 +43,25 @@ export const footerIconMap = {
 } as const
 
 export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
+	const t = useTranslations('footer')
+
 	return (
 		<div className='flex'>
 			<div className={cn('p-5 min-w-[318px] max-md:p-3', title === 'Для связи' && 'max-w-[100px]')}>
 				<ol className='flex flex-col'>
 					<h2 className='text-xl font-bold leading-16 max-md:text-lg max-sm:text-base max-md:leading-10'>
-						{title}
+						{t(title)}
 					</h2>
 					<div
 						className={cn(
 							'flex flex-col gap-2 max-md:text-sm max-md:gap-1',
-							title === 'Мы в соц. сетях' && 'flex flex-row gap-6 justify-start',
-							title === 'Виды оплаты' && 'grid grid-cols-2 gap-2'
+							title === 'payments' && 'grid grid-cols-2 gap-2',
+							title === 'social' && 'flex flex-row items-center'
 						)}
 					>
 						{menus.map(item => {
 							switch (title) {
-								case 'Для связи':
+								case 'contact':
 									return (
 										<a
 											key={item.text}
@@ -67,12 +70,17 @@ export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
 											target='blank'
 										>
 											<li className='flex gap-2'>
-												{footerIconMap[item.icon!]} {item.text}
+												{footerIconMap[item.icon!]}{' '}
+												{item.text.startsWith('+998') ||
+												item.text.startsWith('info') ||
+												item.text.startsWith('Teleg')
+													? item.text
+													: t(item.text)}
 											</li>
 										</a>
 									)
 
-								case 'Виды оплаты':
+								case 'payments':
 									return (
 										<li
 											key={item.text}
@@ -82,7 +90,7 @@ export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
 										</li>
 									)
 
-								case 'Доставка и магазины':
+								case 'deliveryAndStores':
 									if (item.text === 'Наши магазины') {
 										return (
 											<a
@@ -92,7 +100,7 @@ export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
 												target='blank'
 											>
 												<li className='flex gap-2 bg-[#e8e8f1] p-3 rounded-md'>
-													{footerIconMap[item.icon!]} {item.text}
+													{footerIconMap[item.icon!]} {t(item.text)}
 													<ArrowRight className='absolute right-5 invisible opacity-0 duration-200 group-hover:right-3 group-hover:visible group-hover:opacity-100' />
 												</li>
 											</a>
@@ -106,13 +114,13 @@ export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
 											className='text-gray-500 font-semibold hover:text-primary relative group duration-200'
 										>
 											<li className='flex gap-2 bg-[#e8e8f1] p-3 rounded-md'>
-												{footerIconMap[item.icon!]} {item.text}
+												{footerIconMap[item.icon!]} {t(item.text)}
 												<ArrowRight className='absolute right-5 invisible opacity-0 duration-200 group-hover:right-3 group-hover:visible group-hover:opacity-100' />
 											</li>
 										</Link>
 									)
 
-								case 'Мы в соц. сетях':
+								case 'social':
 									return (
 										<a key={item.text} href={item.link} target='blank'>
 											<li className='rounded-md flex justify-center items-center hover:text-primary duration-200 text-gray-500'>
@@ -129,7 +137,7 @@ export const FooterMenus: React.FC<Props> = ({ title, menus }) => {
 											className='text-gray-500 font-semibold hover:text-primary duration-200'
 										>
 											<li>
-												{footerIconMap[item.icon!]} {item.text}
+												{footerIconMap[item.icon!]} {t(item.text)}
 											</li>
 										</Link>
 									)
